@@ -1,0 +1,81 @@
+/* @import url() FONT IMPORTS MUST ALWAYS BE AT THE VERY TOP OF THIS FILE, ABOVE THE TAILWIND IMPORTS — DO NOT DELETE THIS COMMENT */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap');
+
+/* CRITICAL: THE FOLLOWING TAILWIND IMPORTS MUST NEVER BE DELETED OR REORDERED — DO NOT DELETE THIS COMMENT */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* END TAILWIND IMPORTS — ALL OTHER CSS MUST GO BELOW THIS LINE */
+
+html,
+body,
+#root {
+  min-height: 100%;
+  width: 100%;
+}
+body {
+  background-color: #eeedfe;
+  color: #2b2340;
+  -webkit-font-smoothing: antialiased;
+}
+::selection {
+  background-color: #fbeaf0;
+  color: #993556;
+}
+
+/* Category marquee (scrolling garment-type tags) */
+@keyframes sl-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.sl-marquee {
+  animation: sl-marquee 32s linear infinite;
+}
+
+/* Hero collage images: gentle float + a subtle "pop in" on load.
+   --sl-rot lets each image set its own resting tilt (defaults to 0deg). */
+:root {
+  --sl-rot: 0deg;
+}
+@keyframes sl-pop-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.94) rotate(var(--sl-rot));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotate(var(--sl-rot));
+  }
+}
+@keyframes sl-float {
+  0% {
+    transform: translateY(0) rotate(var(--sl-rot));
+  }
+  50% {
+    transform: translateY(-10px) rotate(var(--sl-rot));
+  }
+  100% {
+    transform: translateY(0) rotate(var(--sl-rot));
+  }
+}
+.sl-pop-float {
+  opacity: 0;
+  transform: rotate(var(--sl-rot));
+  animation:
+    sl-pop-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards,
+    sl-float 5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sl-marquee,
+  .sl-pop-float {
+    animation: none;
+    opacity: 1;
+    transform: rotate(var(--sl-rot));
+  }
+}
