@@ -14,7 +14,11 @@ interface RestyleIdea {
 }
 
 /**
- * Generate detailed styling advice based on the user's question and matched ideas
+ * Generate detailed styling advice based on the user's question and matched ideas.
+ * 
+ * IMPORTANT: This function is designed for the entire South Asian community
+ * including India, Pakistan, Bangladesh, Nepal, and surrounding regions.
+ * All cost estimates are kept generic as they vary significantly by region and tailor.
  */
 function generateAIResponse(
   userQuestion: string,
@@ -60,9 +64,10 @@ Ask me about specific cuts or colors if you need more detailed guidance!`;
 
 **Color Change Options:**
 1. **Professional Dyeing** (Recommended)
-   - Take to a professional dyer (usually ₹500-1500)
+   - Take to a professional dyer
    - Works best on natural fabrics: silk, cotton, linen
    - Results depend on current color and desired shade
+   - *Cost varies by region and fabric type*
 
 2. **Color Blocking**
    - Add contrasting colored panels
@@ -99,7 +104,7 @@ What specific color are you aiming for?`;
    - Lehenga → High-waisted pants/skirt + crop top
    - Saree → Draped co-ord set or palazzo set
    - Anarkali → Tunic top + fitted pants
-   - Cost: 2-3 tailor visits
+   - *Typically requires 2-3 tailor consultations (cost varies by region)*
 
 2. **Modern Crop Top**
    - Keep embroidered choli, shorten it
@@ -156,9 +161,9 @@ What specific silhouette appeals to you?`;
 **Your Garment:** Your ${garmentType} has beautiful embroidery. ${topMatches[0]?.restyle_description || 'Consider keeping it as the focal point of your restyle'}
 
 **Cost Estimate for Embroidery Work:**
-- Simple relocation: ₹200-500
-- Adding new embroidery: ₹500-1000
-- Intricate repositioning: ₹1000+
+- Simple relocation: Budget-friendly option
+- Adding new embroidery: Mid-range cost
+- Intricate repositioning: Premium service (costs vary by region)
 
 Shall I tell you about keeping vs. relocating your specific embroidery?`;
   }

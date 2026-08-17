@@ -67,9 +67,7 @@ export function Landing() {
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="mt-5 max-w-xl text-base leading-relaxed text-ink/70 sm:text-lg">
 
-            Wedding lehengas get worn once and then sit folded for a decade. SecondLife matches your
-            old desi outfit to curated restyle ideas — with a reference photo and a plain-language
-            explanation you can hand straight to a tailor.
+            Wedding lehengas, sarees, shalwar kameez, and other South Asian outfits get worn once and then sit folded for a decade. SecondLife matches your old desi outfit to curated restyle ideas — with a reference photo and a plain-language explanation you can hand straight to a tailor. Serving India, Pakistan, Bangladesh, Nepal, and the entire South Asian diaspora.
           </motion.p>
 
           <motion.div
