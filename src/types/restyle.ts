@@ -24,6 +24,9 @@ export interface RestyleIdea {
   difficulty_level: DifficultyLevel;
   source_link: string;
   after_image_reference: string;
+  /** Every photo attached to this idea in Airtable, in order. Falls back to
+   *  a single-item array of after_image_reference when only one photo exists. */
+  image_gallery: string[];
 }
 
 export interface RestyleRequest {

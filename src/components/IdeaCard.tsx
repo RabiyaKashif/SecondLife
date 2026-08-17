@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowUpRightIcon, ImageOffIcon } from 'lucide-react';
+import { ImageOffIcon, ImagesIcon } from 'lucide-react';
 import type { RestyleIdea } from '../types/restyle';
 import { centerCroppedIdeaIds } from '../data/imageFocus';
 
@@ -16,13 +17,17 @@ const difficultyStyles: Record<string, string> = {
   'Needs designer': 'border-ink/30 bg-white text-ink'
 };
 
+const MotionLink = motion(Link);
+
 export function IdeaCard({ idea, index = 0, reasons = [] }: IdeaCardProps) {
   const [imageFailed, setImageFailed] = useState(false);
   const hasImage = Boolean(idea.after_image_reference) && !imageFailed;
   const cropPosition = centerCroppedIdeaIds.includes(idea.idea_id) ? 'object-center' : 'object-top';
+  const photoCount = idea.image_gallery?.filter(Boolean).length ?? (hasImage ? 1 : 0);
 
   return (
-    <motion.article
+    <MotionLink
+      to={`/idea/${idea.idea_id}`}
       initial={{ opacity: 0, y: 18 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: Math.min(index * 0.07, 0.35), ease: [0.22, 1, 0.36, 1] }}
@@ -49,6 +54,13 @@ export function IdeaCard({ idea, index = 0, reasons = [] }: IdeaCardProps) {
         <span className="absolute left-3 top-3 rounded-full bg-white px-2.5 py-1 font-display text-xs font-semibold text-ink shadow-sm">
           #{String(idea.idea_id).padStart(2, '0')}
         </span>
+
+        {photoCount > 1 &&
+          <span className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full bg-white px-2.5 py-1 text-xs font-semibold text-ink shadow-sm">
+            <ImagesIcon className="h-3.5 w-3.5" aria-hidden="true" />
+            {photoCount}
+          </span>
+        }
       </div>
 
       <div className="flex flex-1 flex-col p-5">
@@ -76,17 +88,9 @@ export function IdeaCard({ idea, index = 0, reasons = [] }: IdeaCardProps) {
           </p>
         }
 
-        <a
-          href={idea.source_link}
-          target="_blank"
-          rel="noreferrer"
-          className="mt-4 inline-flex items-center gap-1.5 self-start text-sm font-bold text-hotpink underline-offset-4 hover:underline">
-
-          See the original inspiration
-          <ArrowUpRightIcon
-            className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-            aria-hidden="true" />
-        </a>
+        <span className="mt-4 inline-flex items-center gap-1.5 self-start text-sm font-bold text-hotpink underline-offset-4 group-hover:underline">
+          See full details
+        </span>
       </div>
-    </motion.article>);
+    </MotionLink>);
 }

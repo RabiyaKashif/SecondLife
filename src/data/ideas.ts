@@ -29,7 +29,8 @@ export const restyleIdeas: RestyleIdea[] = [
       'The dupatta is cut down into a sheer cape and stitched into the shoulder seams of the choli, so the blouse reads modern without touching the embroidery. The skirt stays exactly as it is, which keeps the cost to one tailor visit.',
     difficulty_level: 'Easy (tailor can do)',
     source_link: 'https://www.pinterest.com/search/pins/?q=cape%20sleeve%20lehenga',
-    after_image_reference: IMG.capeSaree
+    after_image_reference: IMG.capeSaree,
+    image_gallery: [IMG.capeSaree]
   },
   {
     idea_id: 2,
@@ -42,7 +43,8 @@ export const restyleIdeas: RestyleIdea[] = [
       'The choli is lengthened into a boxy cropped top and the lehenga panels are re-cut into wide-leg trousers. You lose the ghera but gain something you will actually wear to dinner.',
     difficulty_level: 'Medium',
     source_link: 'https://www.pinterest.com/search/pins/?q=lehenga%20to%20co-ord%20set',
-    after_image_reference: IMG.bustierCoord
+    after_image_reference: IMG.bustierCoord,
+    image_gallery: [IMG.bustierCoord]
   },
   {
     idea_id: 3,
@@ -55,7 +57,8 @@ export const restyleIdeas: RestyleIdea[] = [
       'Six yards of georgette is more than enough for a cropped top and a pair of flowing pants, with the pallu border reused as a waistband and cuff trim. Best for sarees you never drape because pleating feels like a chore.',
     difficulty_level: 'Easy (tailor can do)',
     source_link: 'https://www.pinterest.com/search/pins/?q=saree%20to%20coord%20set',
-    after_image_reference: IMG.cutOutBlouse
+    after_image_reference: IMG.cutOutBlouse,
+    image_gallery: [IMG.cutOutBlouse]
   },
   {
     idea_id: 4,
@@ -68,7 +71,8 @@ export const restyleIdeas: RestyleIdea[] = [
       'A heavy Banarsi saree becomes a knee-length open jacket with the zari border running down both front panels. Throw it over jeans or a plain kurta and the weave does all the work.',
     difficulty_level: 'Medium',
     source_link: 'https://www.pinterest.com/search/pins/?q=banarasi%20saree%20jacket',
-    after_image_reference: IMG.jacketAnarkali
+    after_image_reference: IMG.jacketAnarkali,
+    image_gallery: [IMG.jacketAnarkali]
   },
   {
     idea_id: 5,
@@ -81,7 +85,8 @@ export const restyleIdeas: RestyleIdea[] = [
       'The anarkali is slit open down the centre front and finished with a zari border, turning it into a floor-length jacket worn over a plain slip or trousers. The original flare becomes the drama of the coat.',
     difficulty_level: 'Medium',
     source_link: 'https://www.pinterest.com/search/pins/?q=anarkali%20to%20jacket',
-    after_image_reference: IMG.jacketAnarkali
+    after_image_reference: IMG.jacketAnarkali,
+    image_gallery: [IMG.jacketAnarkali]
   },
   {
     idea_id: 6,
@@ -94,7 +99,8 @@ export const restyleIdeas: RestyleIdea[] = [
       'The anarkali is cut at the waist: the yoke becomes a short kurta and the lower flare is gathered into a separate tiered skirt. Two pieces you can mix with things you already own.',
     difficulty_level: 'Medium',
     source_link: 'https://www.pinterest.com/search/pins/?q=anarkali%20restyle%20skirt',
-    after_image_reference: IMG.preDrapedSkirt
+    after_image_reference: IMG.preDrapedSkirt,
+    image_gallery: [IMG.preDrapedSkirt]
   },
   {
     idea_id: 7,
@@ -107,7 +113,8 @@ export const restyleIdeas: RestyleIdea[] = [
       'The gharara legs are opened at the inseam and re-joined into one continuous wrap skirt, keeping the sequin band exactly where it falls. Pair it with a plain blouse so the border stays the focus.',
     difficulty_level: 'Easy (tailor can do)',
     source_link: 'https://www.pinterest.com/search/pins/?q=gharara%20to%20skirt',
-    after_image_reference: IMG.preDrapedSkirt
+    after_image_reference: IMG.preDrapedSkirt,
+    image_gallery: [IMG.preDrapedSkirt]
   },
   {
     idea_id: 8,
@@ -120,7 +127,8 @@ export const restyleIdeas: RestyleIdea[] = [
       'The heavy gharara flare is trimmed into straight-leg pants and the leftover fabric lines a short mandarin-collar kurta. A much lighter outfit that still photographs as formal.',
     difficulty_level: 'Needs designer',
     source_link: 'https://www.pinterest.com/search/pins/?q=gharara%20restyle',
-    after_image_reference: IMG.bustierCoord
+    after_image_reference: IMG.bustierCoord,
+    image_gallery: [IMG.bustierCoord]
   },
   {
     idea_id: 9,
@@ -133,7 +141,8 @@ export const restyleIdeas: RestyleIdea[] = [
       'The sharara is narrowed into soft palazzos and the extra width is used for a bias-cut cami with mirror-work straps. Feels summery instead of bridal.',
     difficulty_level: 'Easy (tailor can do)',
     source_link: 'https://www.pinterest.com/search/pins/?q=sharara%20restyle',
-    after_image_reference: IMG.softOmbre
+    after_image_reference: IMG.softOmbre,
+    image_gallery: [IMG.softOmbre]
   },
   {
     idea_id: 10,
@@ -146,7 +155,8 @@ export const restyleIdeas: RestyleIdea[] = [
       'The peshwas frock is shortened at the hem and layered over a plain slip to lighten it, with the sequin net kept only on the top half. A good fix for frocks that feel too heavy to sit in.',
     difficulty_level: 'Medium',
     source_link: 'https://www.pinterest.com/search/pins/?q=peshwas%20restyle',
-    after_image_reference: IMG.softOmbre
+    after_image_reference: IMG.softOmbre,
+    image_gallery: [IMG.softOmbre]
   },
   {
     idea_id: 11,
@@ -159,7 +169,8 @@ export const restyleIdeas: RestyleIdea[] = [
       'The kameez is taken in at the waist, given a placket and a self-fabric belt, and worn as a standalone shirt dress. The shalwar fabric becomes the belt and pocket facings.',
     difficulty_level: 'Easy (tailor can do)',
     source_link: 'https://www.pinterest.com/search/pins/?q=kameez%20shirt%20dress',
-    after_image_reference: IMG.cowlDrape
+    after_image_reference: IMG.cowlDrape,
+    image_gallery: [IMG.cowlDrape]
   },
   {
     idea_id: 12,
@@ -172,7 +183,8 @@ export const restyleIdeas: RestyleIdea[] = [
       'The kurti is cropped to the waist and the palazzos are opened into a tie-front sarong skirt. Two casual separates from one tired suit.',
     difficulty_level: 'Easy (tailor can do)',
     source_link: 'https://www.pinterest.com/search/pins/?q=kurti%20restyle',
-    after_image_reference: IMG.cutOutBlouse
+    after_image_reference: IMG.cutOutBlouse,
+    image_gallery: [IMG.cutOutBlouse]
   },
   {
     idea_id: 13,
@@ -185,7 +197,8 @@ export const restyleIdeas: RestyleIdea[] = [
       'The angrakha panel is shortened to hip length and re-tied at the side to work as a wrap top. Keep the original zari ties as the fastening so nothing is wasted.',
     difficulty_level: 'Easy (tailor can do)',
     source_link: 'https://www.pinterest.com/search/pins/?q=angrakha%20restyle',
-    after_image_reference: IMG.cowlDrape
+    after_image_reference: IMG.cowlDrape,
+    image_gallery: [IMG.cowlDrape]
   },
   {
     idea_id: 14,
@@ -198,7 +211,8 @@ export const restyleIdeas: RestyleIdea[] = [
       'The gown bodice is boned into a structured corset and the skirt is re-gathered onto a lehenga waistband. Reads bridal-adjacent without buying anything new.',
     difficulty_level: 'Needs designer',
     source_link: 'https://www.pinterest.com/search/pins/?q=gown%20to%20lehenga',
-    after_image_reference: IMG.bodiceLehenga
+    after_image_reference: IMG.bodiceLehenga,
+    image_gallery: [IMG.bodiceLehenga]
   },
   {
     idea_id: 15,
@@ -211,7 +225,8 @@ export const restyleIdeas: RestyleIdea[] = [
       'The lehenga is shortened to mid-calf and the removed panels are added as a second sheer layer for movement. Wear it with a plain knit and it stops looking like a wedding outfit.',
     difficulty_level: 'Medium',
     source_link: 'https://www.pinterest.com/search/pins/?q=lehenga%20to%20midi%20skirt',
-    after_image_reference: IMG.fabricDetail
+    after_image_reference: IMG.fabricDetail,
+    image_gallery: [IMG.fabricDetail]
   },
   {
     idea_id: 16,
@@ -224,7 +239,8 @@ export const restyleIdeas: RestyleIdea[] = [
       'The saree is stitched into a permanent drape over a fitted underskirt so it goes on in one step. Nothing is cut away, so the piece can be undone later if you change your mind.',
     difficulty_level: 'Medium',
     source_link: 'https://www.pinterest.com/search/pins/?q=pre%20draped%20saree%20gown',
-    after_image_reference: IMG.preDrapedSkirt
+    after_image_reference: IMG.preDrapedSkirt,
+    image_gallery: [IMG.preDrapedSkirt]
   },
   {
     idea_id: 17,
@@ -237,7 +253,8 @@ export const restyleIdeas: RestyleIdea[] = [
       'The choli is rebuilt as a structured bustier and the lehenga is re-cut into deeply pleated trousers with the border sitting at the hem. Modern, but the fabric story stays intact.',
     difficulty_level: 'Needs designer',
     source_link: 'https://www.pinterest.com/search/pins/?q=lehenga%20to%20pants',
-    after_image_reference: IMG.bustierCoord
+    after_image_reference: IMG.bustierCoord,
+    image_gallery: [IMG.bustierCoord]
   },
   {
     idea_id: 18,
@@ -250,6 +267,7 @@ export const restyleIdeas: RestyleIdea[] = [
       'Where a garment is too damaged to re-cut whole, the embroidered motifs are lifted off and re-applied onto a new plain base — a jacket, a bag, or a plain kurta. The handwork survives even if the outfit does not.',
     difficulty_level: 'Needs designer',
     source_link: 'https://www.pinterest.com/search/pins/?q=embroidery%20salvage%20upcycle',
-    after_image_reference: IMG.fabricDetail
+    after_image_reference: IMG.fabricDetail,
+    image_gallery: [IMG.fabricDetail]
   }
 ];

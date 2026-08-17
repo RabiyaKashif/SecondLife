@@ -9,6 +9,7 @@ import { Upload } from './pages/Upload';
 import { Processing } from './pages/Processing';
 import { Results } from './pages/Results';
 import { Browse } from './pages/Browse';
+import { IdeaDetail } from './pages/IdeaDetail';
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -29,6 +30,7 @@ function AnimatedRoutes() {
           <Route path="/processing" element={<Processing />} />
           <Route path="/results" element={<Results />} />
           <Route path="/browse" element={<Browse />} />
+          <Route path="/idea/:ideaId" element={<IdeaDetail />} />
           <Route path="*" element={<Landing />} />
         </Routes>
       </motion.div>
