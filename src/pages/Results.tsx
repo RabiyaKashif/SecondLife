@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
-import { RotateCcwIcon, SparklesIcon } from 'lucide-react';
+import { RotateCcwIcon, SparklesIcon, MessageCircleIcon } from 'lucide-react';
 import { IdeaCard } from '../components/IdeaCard';
+import { AIChat } from '../components/AIChat';
 import { useRestyle } from '../contexts/RestyleContext';
 
 export function Results() {
@@ -10,6 +11,7 @@ export function Results() {
   const { request, matches, summary, summaryLoading, updateRequest, runMatching } = useRestyle();
   const [retrying, setRetrying] = useState(false);
   const [draft, setDraft] = useState(request.wish);
+  const [chatOpen, setChatOpen] = useState(false);
 
   if (!matches.length && !summaryLoading) return <Navigate to="/upload" replace />;
 
@@ -93,6 +95,14 @@ export function Results() {
 
                   Browse all ideas
                 </Link>
+                <button
+                  type="button"
+                  onClick={() => setChatOpen(true)}
+                  className="inline-flex items-center gap-2 rounded-full bg-hotpink px-4 py-2 text-sm font-semibold text-pinkfill transition-colors hover:bg-hotpinkDark">
+
+                  <MessageCircleIcon className="h-4 w-4" aria-hidden="true" />
+                  Ask AI for details
+                </button>
               </div>
 
               <AnimatePresence>
@@ -151,5 +161,12 @@ export function Results() {
           </div>
         </section>
       </div>
+
+      <AIChat
+        request={request}
+        topMatches={matches}
+        isOpen={chatOpen}
+        onClose={() => setChatOpen(false)}
+      />
     </main>);
 }
