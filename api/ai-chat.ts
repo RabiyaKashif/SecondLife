@@ -19,7 +19,11 @@ export default async function handler(req: any, res: any) {
   const OPENROUTER_KEY = process.env.OPENROUTER_API_KEY;
 
   if (!OPENROUTER_KEY) {
-    return res.status(500).json({ error: 'OpenRouter key not configured' });
+    console.error('CRITICAL: OPENROUTER_API_KEY not set in environment');
+    return res.status(500).json({ 
+      error: 'Configuration error',
+      message: 'OpenRouter API key not configured. Please add OPENROUTER_API_KEY to Vercel environment variables.'
+    });
   }
 
   try {
@@ -40,6 +44,10 @@ export default async function handler(req: any, res: any) {
       topMatches: RestyleIdea[];
       conversationHistory: Message[];
     } = req.body;
+
+    if (!user_question) {
+      return res.status(400).json({ error: 'User question is required' });
+    }
 
     const matchList = topMatches
       .slice(0, 3)
@@ -87,7 +95,7 @@ Be specific and actionable. If they ask about something outside the database, st
         'X-Title': 'SecondLife Styling'
       },
       body: JSON.stringify({
-        model: 'meta-llama/llama-3.1-8b-instruct:free',
+        model: 'openai/gpt-3.5-turbo',
         messages: [
           ...messages,
           { role: 'user', content: user_question }
@@ -100,11 +108,16 @@ Be specific and actionable. If they ask about something outside the database, st
     if (!response.ok) {
       const error = await response.text();
       console.error('OpenRouter Error:', error);
-      return res.status(500).json({ error: 'AI service unavailable' });
+      throw new Error(`OpenRouter API failed: ${response.status}`);
     }
 
     const data = await response.json();
-    const aiResponse = data.choices?.[0]?.message?.content ?? 'Sorry, I could not generate a response.';
+    
+    if (!data.choices || !data.choices[0] || !data.choices[0].message) {
+      throw new Error('Invalid response format from OpenRouter');
+    }
+    
+    const aiResponse = data.choices[0].message.content;
 
     return res.status(200).json({ response: aiResponse });
   } catch (error: any) {
