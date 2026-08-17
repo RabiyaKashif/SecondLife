@@ -95,26 +95,33 @@ Be specific and actionable. If they ask about something outside the database, st
         'X-Title': 'SecondLife Styling'
       },
       body: JSON.stringify({
-        model: 'openai/gpt-3.5-turbo',
+        model: 'meta-llama/llama-2-7b-chat:free',
         messages: [
           ...messages,
           { role: 'user', content: user_question }
-        ],
-        temperature: 0.7,
-        max_tokens: 500
+        ]
       }),
     });
 
     if (!response.ok) {
       const error = await response.text();
-      console.error('OpenRouter Error:', error);
-      throw new Error(`OpenRouter API failed: ${response.status}`);
+      console.error('OpenRouter Error Status:', response.status);
+      console.error('OpenRouter Error Response:', error);
+      return res.status(500).json({ 
+        error: 'AI service error',
+        status: response.status,
+        details: error
+      });
     }
 
     const data = await response.json();
     
     if (!data.choices || !data.choices[0] || !data.choices[0].message) {
-      throw new Error('Invalid response format from OpenRouter');
+      console.error('Invalid response format:', data);
+      return res.status(500).json({ 
+        error: 'Invalid response format from OpenRouter',
+        details: JSON.stringify(data)
+      });
     }
     
     const aiResponse = data.choices[0].message.content;
