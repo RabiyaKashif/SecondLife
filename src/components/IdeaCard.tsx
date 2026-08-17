@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ImageOffIcon, ImagesIcon } from 'lucide-react';
 import type { RestyleIdea } from '../types/restyle';
-import { centerCroppedIdeaIds } from '../data/imageFocus';
+import { topCroppedIdeaIds } from '../data/imageFocus';
 
 interface IdeaCardProps {
   idea: RestyleIdea;
@@ -22,7 +22,7 @@ const MotionLink = motion(Link);
 export function IdeaCard({ idea, index = 0, reasons = [] }: IdeaCardProps) {
   const [imageFailed, setImageFailed] = useState(false);
   const hasImage = Boolean(idea.after_image_reference) && !imageFailed;
-  const cropPosition = centerCroppedIdeaIds.includes(idea.idea_id) ? 'object-center' : 'object-top';
+  const cropPosition = topCroppedIdeaIds.includes(idea.idea_id) ? 'object-top' : 'object-center';
   const photoCount = idea.image_gallery?.filter(Boolean).length ?? (hasImage ? 1 : 0);
 
   return (

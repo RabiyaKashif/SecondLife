@@ -57,20 +57,30 @@ export default async function handler(req: any, res: any) {
       )
       .join('\n');
 
-    const prompt = `You are a thoughtful, knowledgeable restyling assistant for South Asian wedding wear. Someone has an old ${dominant_color} ${garment_type} made of ${fabric_type?.join(
-      ', '
-    )}. They want to restyle it and said: "${wish}".
+    const prompt = `You are an expert South Asian fashion restyling consultant for wedding wear and traditional garments. Someone wants to restyle their old ${dominant_color} ${garment_type} (made of ${fabric_type?.join(', ')}). Their specific request is: "${wish}".
 
-Here are the closest curated restyle ideas:
+Curated ideas that match their style:
 ${matchList}
 
-Write a thorough response:
-1. Explain WHY the top match fits their wish.
-2. Walk through what changes and what stays the same (fabric, color, embroidery).
-3. If a second match is an alternative, explain when to choose it.
-4. Mention practical advice for their tailor.
+=== IMPORTANT ===
+Your response should NOT just summarize the curated ideas. Instead, provide a DETAILED TRANSFORMATION GUIDE that:
 
-Keep the tone warm and clear.`;
+1. **Analyze the Current Garment**: Describe what physical changes are needed to transform their dress
+2. **Fabric & Material Guidance**: Specify which fabrics work best, how to modify the current fabric, or what new materials to source
+3. **Color Transformation**: Detail how to achieve the color they want (dyeing options, blocking, color-blocking, contrasting panels, etc.)
+4. **Cutting & Silhouette Changes**: Explain specific cuts, lengths, and structural changes (add panels, remove sleeves, create a co-ord set, convert to modern cut, etc.)
+5. **Embroidery & Details**: How to reuse, modify, or relocate existing embroidery; what new embellishments would work
+6. **Length & Fit**: Specify exact length changes and fit adjustments
+7. **Tailor Instructions**: Give practical step-by-step advice for a skilled tailor
+
+=== IMPORTANT: Out-of-Database Requests ===
+If their request is something NOT in the curated ideas (unusual combinations, very specific modern styles, experimental looks), still provide comprehensive guidance on:
+- How to technically achieve it
+- What fabric choices support this vision
+- Detailed cutting and sewing instructions
+- Color and embellishment strategies
+
+Make your response warm, specific, and actionable. Avoid generic language.`;
 
     // 4. Correct Fetch Implementation
     const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {

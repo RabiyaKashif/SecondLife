@@ -1,10 +1,6 @@
 import { restyleIdeas } from '../data/ideas';
 import type { RestyleIdea } from '../types/restyle';
 
-const BASE_ID = '';
-const TABLE_NAME = 'Restyle Ideas';
-const TOKEN = '';
-
 interface AirtableAttachment {
   url: string;
 }
@@ -33,17 +29,25 @@ const mapRecord = (record: AirtableRecord): RestyleIdea => {
 };
 
 /**
- * Fetches the curated ideas from Airtable's REST API. Until a Personal Access
- * Token and Base ID are supplied, it falls back to the bundled sample rows so
- * the whole flow stays usable.
+ * Fetches the curated ideas from the backend API (which securely calls Airtable).
+ * This keeps API tokens on the backend only - never exposed to the frontend.
+ * Falls back to bundled sample data if the backend is unavailable.
  */
 export async function fetchRestyleIdeas(): Promise<RestyleIdea[]> {
-  if (!BASE_ID || !TOKEN) return restyleIdeas;
+  try {
+    const response = await fetch('/api/ideas');
+    if (!response.ok) throw new Error('Backend API failed');
 
-  const url = `https://api.airtable.com/v0/${BASE_ID}/${encodeURIComponent(TABLE_NAME)}?pageSize=100`;
-  const response = await fetch(url, { headers: { Authorization: `Bearer ${TOKEN}` } });
-  if (!response.ok) throw new Error('Could not load restyle ideas');
-
-  const json = (await response.json()) as { records: AirtableRecord[] };
-  return json.records.map(mapRecord);
+    const data = await response.json();
+    
+    // Map Airtable records to our RestyleIdea type
+    if (data.records && Array.isArray(data.records)) {
+      return data.records.map(mapRecord);
+    }
+    
+    return restyleIdeas;
+  } catch (error) {
+    console.warn('Could not fetch from backend, using bundled ideas:', error);
+    return restyleIdeas;
+  }
 }
