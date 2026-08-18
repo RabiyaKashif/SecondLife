@@ -109,10 +109,10 @@ export function AIChat({ request, topMatches, isOpen, onClose }: AIChatProps) {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20 }}
           transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-          className="fixed bottom-6 right-6 z-50 w-96 max-h-[600px] flex flex-col rounded-3xl border border-lilacDeep bg-white shadow-2xl">
+          className="fixed bottom-4 right-4 z-50 flex max-h-[calc(100dvh-2rem)] w-[calc(100vw-2rem)] max-w-96 flex-col rounded-2xl border border-lilacDeep bg-white shadow-2xl sm:bottom-6 sm:right-6 sm:max-h-[600px] sm:rounded-3xl">
 
           {/* Header */}
-          <div className="flex items-center justify-between border-b border-lilacDeep px-6 py-4">
+          <div className="flex items-center justify-between border-b border-lilacDeep px-4 py-3 sm:px-6 sm:py-4">
             <div>
               <h3 className="font-display text-lg font-semibold text-ink">AI Styling Advisor</h3>
               <p className="text-xs text-ink/60">Ask me anything about your restyle</p>
@@ -125,7 +125,7 @@ export function AIChat({ request, topMatches, isOpen, onClose }: AIChatProps) {
           </div>
 
           {/* Messages */}
-          <div className="flex-1 overflow-y-auto space-y-4 p-4">
+          <div className="min-h-0 flex-1 space-y-4 overflow-y-auto p-3 sm:p-4">
             {messages.map((message) => (
               <motion.div
                 key={message.id}
@@ -134,7 +134,7 @@ export function AIChat({ request, topMatches, isOpen, onClose }: AIChatProps) {
                 className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}>
 
                 <div
-                  className={`max-w-xs rounded-2xl px-4 py-3 text-sm leading-relaxed ${
+                  className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm leading-relaxed sm:max-w-xs ${
                     message.role === 'user'
                       ? 'bg-hotpink text-white'
                       : 'bg-lilac text-ink'
@@ -162,13 +162,13 @@ export function AIChat({ request, topMatches, isOpen, onClose }: AIChatProps) {
           {/* Input */}
           <form
             onSubmit={handleSubmit}
-            className="border-t border-lilacDeep px-4 py-3 flex gap-2">
+            className="flex gap-2 border-t border-lilacDeep px-3 py-3 sm:px-4">
             <input
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Ask me about fabrics, colors, cuts..."
-              className="flex-1 bg-lilac rounded-full px-4 py-2 text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-hotpink"
+              className="min-w-0 flex-1 rounded-full bg-lilac px-4 py-2 text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-hotpink"
               disabled={isLoading}
             />
             <button

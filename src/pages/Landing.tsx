@@ -92,22 +92,6 @@ export function Landing() {
             </Link>
           </motion.div>
 
-          <motion.dl
-            variants={fadeUp}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-10 grid max-w-2xl grid-cols-3 gap-5">
-
-            {[
-              ['60', 'Curated ideas'],
-              ['11', 'Garment types'],
-              ['0', 'New fabric bought']
-            ].map(([value, label]) =>
-              <div key={label} className="rounded-2xl border border-lilacDeep bg-white p-5 transition-colors hover:border-hotpink">
-                <dt className="font-display text-3xl font-semibold text-ink">{value}</dt>
-                <dd className="mt-1.5 whitespace-nowrap text-sm font-medium text-ink/60">{label}</dd>
-              </div>
-            )}
-          </motion.dl>
         </motion.div>
 
         {/* Hero collage: three real outfit photos, floating with a staggered pop-in.
@@ -139,6 +123,23 @@ export function Landing() {
             className="sl-pop-float absolute right-6 bottom-6 h-[150px] w-[34%] rounded-2xl object-cover shadow-lg md:h-[190px]"
             style={{ animationDelay: '460ms, 2.1s', ['--sl-rot' as string]: '4deg' }} />
         </div>
+
+        <motion.dl
+          variants={fadeUp}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-2 grid max-w-2xl grid-cols-3 gap-3 sm:gap-5 lg:col-start-1 lg:row-start-2 lg:mt-0">
+
+          {[
+            ['60', 'Curated ideas'],
+            ['11', 'Garment types'],
+            ['0', 'New fabric bought']
+          ].map(([value, label]) =>
+            <div key={label} className="min-w-0 rounded-2xl border border-lilacDeep bg-white p-3 transition-colors hover:border-hotpink sm:p-5">
+              <dt className="font-display text-3xl font-semibold text-ink">{value}</dt>
+              <dd className="mt-1.5 text-xs font-medium leading-snug text-ink/60 sm:text-sm">{label}</dd>
+            </div>
+          )}
+        </motion.dl>
       </section>
 
       <section aria-hidden="true" className="overflow-hidden border-y border-lilacDeep py-4">
