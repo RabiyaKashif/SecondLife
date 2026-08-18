@@ -37,7 +37,7 @@ export function AIChat({ request, topMatches, isOpen, onClose }: AIChatProps) {
       const greeting: Message = {
         id: '0',
         role: 'assistant',
-        content: `Namaste! 👋 I'm your AI styling consultant for South Asian desi wear. I serve the entire South Asian community - India, Pakistan, Bangladesh, Nepal, and beyond. I can help you transform your ${request.dominant_color} ${request.garment_type} into exactly what you envision. Ask me about fabrics, colors, cutting techniques, embroidery, silhouettes, or any custom ideas!`,
+        content: `HI! 👋 I'm your AI styling consultant for South Asian desi wear. I serve the entire South Asian community - India, Pakistan, Bangladesh, Nepal, and beyond. I can help you transform your ${request.dominant_color} ${request.garment_type} into exactly what you envision. Ask me about fabrics, colors, cutting techniques, embroidery, silhouettes, or any custom ideas!`,
         timestamp: new Date()
       };
       setMessages([greeting]);
